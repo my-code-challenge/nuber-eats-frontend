@@ -4,7 +4,7 @@ import { FormError } from "../components/form-error";
 import nuberLogo from "../images/eats-logo.svg";
 import { Button } from "../components/Button";
 import { Link, useHistory } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { UserRole } from "../__generated__/globalTypes";
 import {
     createAccountMutation,
@@ -39,7 +39,7 @@ export const CreateAccount = () => {
     const onCompleted = ({ createAccount: { ok } }: createAccountMutation) => {
         if (ok) {
             alert("Account Create! Login now!");
-            history.push("/login");
+            history.push("/");
         }
     };
 
@@ -118,7 +118,7 @@ export const CreateAccount = () => {
                     </form>
                     <div>
                         Already have an account?{" "}
-                        <Link to="/login" className="text-lime-600 hover:underline">
+                        <Link to="/" className="text-lime-600 hover:underline">
                             🚀Login Now
                         </Link>
                     </div>

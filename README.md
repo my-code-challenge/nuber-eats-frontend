@@ -31,6 +31,7 @@ CreactReactApp
 ## Challenge
 
 -   [x] SetUp apollo client, apollo tooling tailwindCss, react router
+-   [x] send auth token to server
 -   [x] logged out router
 -   [x] looged in router
 
