@@ -5,6 +5,10 @@
     @apply focus:outline-none focus:border-gray-500 p-3 border-2 text-lg border-gray-200 transition-colors;
 }
 
+.container {
+    @apply max-w-screen-2xl mx-auto;
+}
+
 .error {
     @apply font-medium text-red-500 p-3 text-left;
 }
