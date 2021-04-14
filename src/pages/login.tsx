@@ -24,19 +24,19 @@ interface ILoginForm {
     password: string;
 }
 
-export const Login = () => {
+const Login = () => {
     const {
         register,
         getValues,
-        formState: { errors, isValid },
         handleSubmit,
-    } = useForm<ILoginForm>({ mode: "onChange" });
-
+        formState: { errors, isValid },
+    } = useForm<ILoginForm>({
+        mode: "onChange",
+    });
     const onCompleted = (data: loginMutation) => {
         const {
             login: { ok, token },
         } = data;
-
         if (ok && token) {
             localStorage.setItem(LOCALSTORAGE_TOKEN, token);
             authTokenVar(token);
@@ -49,17 +49,18 @@ export const Login = () => {
     >(LOGIN_MUTATION, {
         onCompleted,
     });
-
     const onSubmit = () => {
-        const { email, password } = getValues();
-        loginMutation({
-            variables: {
-                loginInput: {
-                    email,
-                    password,
+        if (!loading) {
+            const { email, password } = getValues();
+            loginMutation({
+                variables: {
+                    loginInput: {
+                        email,
+                        password,
+                    },
                 },
-            },
-        });
+            });
+        }
     };
 
     return (
@@ -124,3 +125,5 @@ export const Login = () => {
         </>
     );
 };
+
+export default Login;

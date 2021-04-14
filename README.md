@@ -30,13 +30,26 @@ CreactReactApp
 
 ## Challenge
 
--   [x] SetUp apollo client, apollo tooling tailwindCss, react router
+-   [x] SetUp apollo client, apollo tooling, tailwindCss, react router
 -   [x] send auth token to server
 -   [x] logged out router
 -   [x] looged in router
 
+-   [x] Main(Restaurants) page
 -   [x] login page
 -   [x] create account page
+-   [x] Edit profile page
+-   [x] verify email page
+-   [x] 404(not found) page
+-   [x] category page
+-   [x] search page
+-   [x] restaurant detail page
+
+-   [x] App Tests
+-   [ ] Button Tests
+-   [ ] Form Error and Restaurant Tests
+-   [ ] Header and 404 Tests
+-   [ ] Login Tests
 
 ## Using NPM libraries
 

@@ -3,28 +3,28 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
 import { gql, useQuery } from "@apollo/client";
 import { restaurantsQuery, restaurantsQueryVariables } from "../../__generated__/restaurantsQuery";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+
+/** Apollo */
+import { CATEGORY_FRAGMENT, RESTAURANT_FRAGMENT } from "../../fragments";
 
 /** components */
 import Restaurant from "../../components/Restaurant";
-import { Helmet } from "react-helmet-async";
-import { RESTAURANT_FRAGMENT } from "../../fragments";
 
-interface IFormProps {
+export interface ISearchFormProps {
     searchTerm: string;
 }
 
 const RESTAURANTS_QUERY = gql`
     ${RESTAURANT_FRAGMENT}
+    ${CATEGORY_FRAGMENT}
     query restaurantsQuery($input: RestaurantsInput!) {
         allCategories {
             ok
             error
             categories {
-                id
-                name
-                coverImage
-                slug
-                restaurantCount
+                ...CategoryParts
             }
         }
         allRestaurants(input: $input) {
@@ -56,13 +56,7 @@ export const Restaurants = () => {
     const onPageClick = (type: "prev" | "next") => () =>
         setPage((prev) => (type === "next" ? prev + 1 : prev - 1));
 
-    const {
-        register,
-        handleSubmit,
-        getValues,
-        watch,
-        formState: { errors },
-    } = useForm<IFormProps>();
+    const { register, handleSubmit, getValues } = useForm<ISearchFormProps>();
 
     const onSearchSubmit = () => {
         const { searchTerm } = getValues();
@@ -100,20 +94,22 @@ export const Restaurants = () => {
                         <div className="container mt-8">
                             <div className="flex justify-around max-w-screen-sm mx-auto">
                                 {data?.allCategories.categories?.map((category, index) => (
-                                    <div
+                                    <Link
                                         key={`category-${index}`}
-                                        className="flex flex-col items-center cursor-pointer group"
+                                        to={`/category/${category.slug}`}
                                     >
-                                        <div
-                                            className="w-16 h-16 rounded-full bg-cover group-hover:bg-gray-200"
-                                            style={{
-                                                backgroundImage: `url(${category.coverImage})`,
-                                            }}
-                                        />
-                                        <span className="mt-1 text-sm text-center font-medium">
-                                            {category.name}
-                                        </span>
-                                    </div>
+                                        <div className="flex flex-col items-center cursor-pointer group">
+                                            <div
+                                                className="w-16 h-16 rounded-full bg-cover group-hover:bg-gray-200"
+                                                style={{
+                                                    backgroundImage: `url(${category.coverImage})`,
+                                                }}
+                                            />
+                                            <span className="mt-1 text-sm text-center font-medium">
+                                                {category.name}
+                                            </span>
+                                        </div>
+                                    </Link>
                                 ))}
                             </div>
                             <div className="mt-16 grid md:grid-cols-3 gap-x-5 gap-y-10">
