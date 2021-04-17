@@ -5,7 +5,7 @@ export const NotFound = () => {
     return (
         <>
             <Helmet>
-                <title>Not found | Nuber Eats</title>
+                <title>Not Found | Nuber Eats</title>
             </Helmet>
             <div className="h-screen flex items-center justify-center flex-col">
                 <h2 className="font-semibold text-2xl mb-3">Page Not Found.</h2>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-interface IRestaurantProps {
+export interface IRestaurantProps {
     id: number;
     coverImage: string;
     name: string;

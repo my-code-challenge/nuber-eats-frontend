@@ -36,7 +36,12 @@ export const Header: React.FC = () => {
                                 <FontAwesomeIcon icon={faUser} className="text-xl" />
                             </span>
                         </Link>
-                        <button type="button" className="hover:underline" onClick={handleClick}>
+                        <button
+                            role="button"
+                            type="button"
+                            className="hover:underline"
+                            onClick={handleClick}
+                        >
                             Logout
                         </button>
                     </div>

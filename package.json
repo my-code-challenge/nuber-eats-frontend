@@ -34,7 +34,7 @@
         "apollo:codegen": "rimraf src/__generated__ && apollo client:codegen src/__generated__ --target=typescript --outputFlat",
         "start": "npm run apollo:codegen & npm run tailwind:build & react-scripts start",
         "build": "react-scripts build",
-        "test": "react-scripts test",
+        "test": "react-scripts test --verbose",
         "test:cov": "npm test -- --coverage --watchAll=false",
         "eject": "react-scripts eject"
     },
@@ -58,7 +58,8 @@
     },
     "devDependencies": {
         "@types/react-helmet": "^6.1.0",
-        "@types/react-router-dom": "^5.1.7"
+        "@types/react-router-dom": "^5.1.7",
+        "mock-apollo-client": "^1.1.0"
     },
     "jest": {
         "collectCoverageFrom": [
