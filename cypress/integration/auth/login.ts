@@ -17,16 +17,13 @@ describe("LogIn", () => {
         cy.findByRole("alert").should("have.text", "비밀번호 입력은 필수입니다");
     });
 
-    it("can fill out the form", () => {
-        // to do (can log in)
-        cy.visit("/");
-        cy.findByPlaceholderText("Email").type("customer@customer.com");
-        cy.findByPlaceholderText("Password").type("12345");
-        cy.findByRole("button").should("not.have.class", "pointer-events-none").click();
-        cy.window().its("localStorage.token").should("be.a", "string");
+    it("can fill out the form and login", () => {
+        //@ts-ignore
+        cy.login("customer@customer.com", "12345");
     });
 
     it("sign up", () => {
         cy.visit("/create-account");
+        cy.location();
     });
 });

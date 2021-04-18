@@ -51,6 +51,7 @@ CreactReactApp
 -   [x] Header and 404 Tests
 -   [x] Login Tests
 -   [x] Create account Tests
+-   [x] E2E Tests
 
 ## Using NPM libraries
 
