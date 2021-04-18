@@ -61,3 +61,7 @@ CreactReactApp
 `react-helmet-async : 기본 'react-helmet'을 사용할 경우 콘솔에 오류 발생으로 인한 대안`<br/>
 `mock-apollo-client : apollo-client를 테스트 하기 위한 또 다른 라이브러리 (복잡한 apollo 테스트가 가능)`
 -> [NPM](https://www.npmjs.com/package/mock-apollo-client)
+`cypress : end-to-end testing framework. > npx cypress open` -> [DOCS](https://docs.cypress.io/guides/overview/why-cypress)
+
+-   cypress relation library
+    -   @testing-library/cypress -> [DOCS](https://testing-library.com/docs/cypress-testing-library/intro)

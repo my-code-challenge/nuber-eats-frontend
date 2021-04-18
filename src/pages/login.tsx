@@ -109,7 +109,12 @@ const Login = () => {
                             <FormError errorMessage={"Password must be more than 10 chars."} />
                         )} */}
                         </div>
-                        <Button canClick={isValid} loading={loading} actionText={"Login"} />
+                        <Button
+                            canClick={isValid}
+                            loading={loading}
+                            actionText={"Login"}
+                            id="loginBtn"
+                        />
                         {loginMutationResult?.login.error && (
                             <FormError errorMessage={loginMutationResult.login.error} />
                         )}
